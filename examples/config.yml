@@ -1,0 +1,15 @@
+mysite:
+    domain: "mysite.com"
+    users:
+        user1@mysite.com:
+            name: "First User"
+            avatar: "https://mysite.com/user1-pic"
+            openid: "https://auth.mysite.com"
+        user2@mysite.com:
+            name: "Other User"
+            openid: "https://sso.mysite.com"
+
+othersite:
+    domain: "othersite.com"
+    openid: "https://auth.othersite.com"
+    global: true 

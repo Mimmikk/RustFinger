@@ -1,0 +1,23 @@
+services:
+  rustfinger:
+    image: rustfinger
+    container_name: rustfinger
+    restart: unless-stopped
+    volumes:
+      - ./config:/config:ro
+    #ports: # Only expose if you can't run on the same network as nginx - we strongly urge you to always use internal network
+    #  - "127.0.0.1:8080:8080"  # Only bind to localhost
+    environment:
+      - RUST_LOG=info
+    healthcheck:
+      test: ["CMD", "/rustfinger", "--help"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+# Example of Docker internal network with nginx
+#networks:
+#  default:
+#    external:
+#      name: nginx
